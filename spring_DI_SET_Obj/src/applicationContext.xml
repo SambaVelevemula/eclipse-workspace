@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+			<beans>
+				<bean id="user1" class="com.user.User">
+					<property name="ans" value="Programming Language"></property>
+					<property name="id" value="123"></property>
+					<property name="name" value="Samba"></property>
+					<property name="posted_on" value="10/05/2018"></property>
+				</bean>
+				<bean id="user2" class="com.user.User">
+					<property name="ans" value="OOPL"></property>
+					<property name="id" value="124"></property>
+					<property name="name" value="Siva"></property>
+					<property name="posted_on" value="12/05/2018"></property>
+				</bean>
+				
+				<bean id="qt" class=" com.qt.QT">
+					<property name="qt_no" value="1"></property>
+					<property name="qt_name" value="What is JAVA?"></property>
+					<property name="ans">
+						<set>
+							<ref bean="user1"/>
+							<ref bean="user2"/>
+						</set>
+					</property>
+					
+				</bean>
+			</beans>

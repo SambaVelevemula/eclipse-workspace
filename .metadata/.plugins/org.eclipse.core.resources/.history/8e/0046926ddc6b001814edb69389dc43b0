@@ -1,0 +1,14 @@
+package mainclass;
+
+public class MC {
+	
+	public void valid(int age) throws Exception {
+		if(age<18) {
+			System.out.println();
+			throw new Exception("Not Eligible to Vote");
+		}else {
+			System.out.println();
+			System.out.println("Eligible to Vote");
+		}
+	}
+}

@@ -1,0 +1,18 @@
+package temp;
+
+public class Clone implements Cloneable {
+	
+	Clone(){
+		System.out.println(" first constructor");
+	}
+
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
+		
+	}
+	public static void main(String[] args) {
+
+
+	}
+
+}

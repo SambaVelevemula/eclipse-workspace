@@ -1,0 +1,99 @@
+package report;
+
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+ import dbcon.GetCon;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+ 
+public class ReportGeneration {
+    
+     
+    public ArrayList<Object[]> getTableData() throws SQLException{
+        ArrayList<Object[]> tableDetails = null;
+        Connection con = getConnection();
+        if(con != null){
+            try{
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM EMP");
+                ResultSet result = ps.executeQuery();
+                tableDetails = new ArrayList<Object[]>();
+                while(result.next()){
+                    Object[] objArray = new Object[3];
+                    objArray[0] = result.getInt(1);
+                    objArray[1] = result.getString(2);
+                    objArray[2] = result.getString(3);
+                    tableDetails.add(objArray);
+                }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            finally{
+            	con.close();
+            	System.out.println("DB connection closed");
+            }
+        }
+        return tableDetails;
+    }
+     
+    public void xportToXML(ArrayList<Object[]> dataList){
+        if(dataList != null && !dataList.isEmpty()){
+            HSSFWorkbook workBook = new HSSFWorkbook();
+            HSSFSheet sheet = workBook.createSheet();
+            HSSFRow headingRow = sheet.createRow(0);
+            headingRow.createCell((short)0).setCellValue("EMPID");
+            headingRow.createCell((short)1).setCellValue("EMP_NAME");
+            headingRow.createCell((short)2).setCellValue("PASSWORD");
+            short rowNo = 1;
+            for (Object[] objects : dataList) {
+                HSSFRow row = sheet.createRow(rowNo);
+                row.createCell((short)0).setCellValue(objects[0].toString());
+                row.createCell((short)1).setCellValue(objects[1].toString());
+                row.createCell((short)2).setCellValue(objects[2].toString());
+                rowNo++;
+            }
+             
+            String file = "D:/EMP_Details.xls";
+            try{
+                FileOutputStream fos = new FileOutputStream(file);
+                workBook.write(fos);
+                fos.flush();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+                System.out.println("Invalid directory or file not found");
+            }catch(IOException e){
+                e.printStackTrace();
+                System.out.println("Error occurred while writting excel file to directory");
+            }
+        }
+    }
+     
+    public static void main(String[] args) throws SQLException {
+    	ReportGeneration exporter = new ReportGeneration();
+        ArrayList<Object[]> data = exporter.getTableData();
+        System.out.println();
+        System.out.println("XML Report Generation Started");
+        System.out.println("------------------------------");
+        System.out.println();
+        if(data != null && data.size() > 0){
+        	System.out.println("Xporting to XMl Started");
+            exporter.xportToXML(data);
+            System.out.println();
+            System.out.println("Exported successfully");
+            System.out.println();
+            System.out.println("Report Generated successfully");
+            System.out.println();
+            System.out.println("Open file location : D:/EMP_Details.xls");
+        }else{
+            System.out.println(" sorry, no data found");
+        }
+    }
+}

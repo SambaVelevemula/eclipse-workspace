@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+			<beans>
+				
+				<bean id="qt" class="bean.Qt" autowire="byType">
+					<property name="qt_no" value="1"></property>
+					<property name="qt_name" value="What is Java?"></property>
+				</bean>
+				<bean id="user2" class="user.User">
+					<property name="ans" value="OOP language"></property>
+					<property name="name" value="Samba"></property>
+				</bean>
+			
+			</beans>

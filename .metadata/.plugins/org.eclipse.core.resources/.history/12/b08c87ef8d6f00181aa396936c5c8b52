@@ -1,0 +1,9 @@
+package dbcon;
+
+public class GetCon {
+	
+	public static connection getConnection() {
+		Connection con=null;
+		return con;
+	}
+}

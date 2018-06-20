@@ -1,0 +1,14 @@
+package temp;
+
+public class Clone implements Cloneable {
+
+	public Object clone() {
+		return super.clone(this);
+		
+	}
+	public static void main(String[] args) {
+
+
+	}
+
+}

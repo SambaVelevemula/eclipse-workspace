@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+			<beans>
+				<bean id="add1" class="com.address.Address">
+					<constructor-arg value="Guntur"></constructor-arg>
+					<constructor-arg value="AP"></constructor-arg>
+				</bean>
+
+				
+				<bean id="emp1" class="com.emp.Emp">
+					<constructor-arg type="int" value="123"></constructor-arg>
+					<constructor-arg value="SAMBA"></constructor-arg>
+					<constructor-arg>
+						<ref bean="add1"/>
+					</constructor-arg>
+				</bean>
+			
+			</beans>

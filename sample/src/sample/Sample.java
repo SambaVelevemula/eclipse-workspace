@@ -1,0 +1,38 @@
+package sample;
+
+public class Sample {
+	
+	public void sort(int arr[]) {
+		int i,j,temp=0;
+		for(i=0;i<arr.length;i++) {
+			for(j=i+1;j<arr.length;j++) {
+				
+				if(arr[j]<arr[i]) {
+					temp=arr[j];
+					arr[j]=arr[i];
+					arr[i]=temp;
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		int arr[]= {8,88,22,0,6,3,7};
+		System.out.println();
+		System.out.println("Sorting Started");
+		System.out.println("----------------");
+		System.out.println();
+		System.out.println("Before Sorting Elements are: ");
+		for(int a:arr) {
+			System.out.print(a+" ");
+		}
+		System.out.println();
+		System.out.println("After Sorting Elements are : ");
+		new Sample().sort(arr);
+		for(int a:arr) {
+			System.out.print(a+" ");
+		}
+
+	}
+
+}

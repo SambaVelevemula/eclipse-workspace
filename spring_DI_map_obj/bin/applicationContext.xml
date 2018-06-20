@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+			
+			<beans>
+				<bean id="ans1" class="com.ans.Answer">
+					<constructor-arg value="Programming Language"></constructor-arg>
+				</bean>
+				<bean id="usr1" class="com.user.User">
+					<constructor-arg value="Samba"></constructor-arg>
+					<constructor-arg value="10/05/2018"></constructor-arg>
+				</bean>
+				
+				<bean id="ans2" class="com.ans.Answer">
+					<constructor-arg value="OOPL"></constructor-arg>
+					
+				</bean>
+				<bean id="use2" class="com.user.User">
+					<constructor-arg value="Siva"></constructor-arg>
+					<constructor-arg value="15/05/2018"></constructor-arg>
+				</bean>
+				<bean id="qt" class="com.qt.Qt">
+					<constructor-arg value="1" type="int"></constructor-arg>
+					<constructor-arg value="What is JAVA?"></constructor-arg>
+					<constructor-arg>
+						<map>
+							<entry key-ref="ans1" value-ref="usr1"></entry>
+							<entry key-ref="ans2" value-ref="use2"></entry>
+						</map>
+					</constructor-arg>
+				</bean>
+			</beans>

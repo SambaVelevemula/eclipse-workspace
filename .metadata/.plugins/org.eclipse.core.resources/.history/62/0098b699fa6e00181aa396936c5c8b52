@@ -1,0 +1,5 @@
+package DBCon;
+
+public class GetCon {
+
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="reportgeneration">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <property name="context-root" value="reportgeneration"/>
+        <property name="java-output-path" value="/reportgeneration/build/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+			"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="ans1" class="com.ans.Answer">
+		<constructor-arg value="It's a Programming Lamguage"></constructor-arg>
+		<constructor-arg value="samba"></constructor-arg>
+	
+	</bean>
+	<bean id="ans2" class="com.ans.Answer">
+		<constructor-arg value="Object Oriented Programming"></constructor-arg>
+		<constructor-arg value="Siva"></constructor-arg>
+	</bean>
+	<bean id="qt" class="com.qt.QT">
+		<constructor-arg type="int" value="1"></constructor-arg>
+		<constructor-arg value="What is java?"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="ans1"/>
+				<ref bean="ans2"/>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
